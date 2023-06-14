@@ -6,7 +6,8 @@
   ## Description
 
   This is an API for a social network web application where users can share their thoughts, react to friends’ thoughts, and create a friend list.    
-  [Click here for the walkthrough video](https://drive.google.com/file/d/1HvmFm_STYRsci3CWCy3lKDxafBZ6e9uf/view?usp=share_link). 
+  [Click here for the walkthrough video](https://drive.google.com/file/d/14FRSXk6FNGwPOwD8Mbm7jJje0TvCOEZI/view?usp=sharing). 
+  
 
   ## Table of Contents
 
