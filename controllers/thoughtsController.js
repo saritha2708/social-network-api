@@ -1,5 +1,6 @@
 const { Thought, User } = require('../models');
 
+// get all thoughts
 const getAllThoughts = async (req, res) => {
     try {
         const thoughtData = await Thought.find();
@@ -9,6 +10,7 @@ const getAllThoughts = async (req, res) => {
     }
 }
 
+// get thought by id
 const getThoughtById = async (req, res) => {
     try {
         const thoughtData = await Thought.findById(req.params.id);
@@ -22,6 +24,7 @@ const getThoughtById = async (req, res) => {
     }
 }
 
+// create a thought
 const createThought = async (req, res) => {
     try {
         const thoughtData = await Thought.create(req.body);
@@ -41,6 +44,7 @@ const createThought = async (req, res) => {
     }
 }
 
+// update thought by id
 const updateThoughtById = async (req, res) => {
     try {
         const thoughtData = await Thought.findOneAndUpdate(
@@ -58,6 +62,7 @@ const updateThoughtById = async (req, res) => {
     }
 }
 
+// delete thought by id
 const deleteThoughtById = async (req, res) => {
     try {
         const thoughtData = await Thought.findOneAndDelete({ _id: req.params.id });
@@ -80,6 +85,7 @@ const deleteThoughtById = async (req, res) => {
     }
 }
 
+// add reaction to thought
 const addReaction = async (req, res) => {
     try {
         const thoughtData = await Thought.findOneAndUpdate(
@@ -97,6 +103,7 @@ const addReaction = async (req, res) => {
     }
 }
 
+// delete reaction from thought
 const deleteReaction = async (req, res) => {
     try {
         const thoughtData = await Thought.findOneAndUpdate(

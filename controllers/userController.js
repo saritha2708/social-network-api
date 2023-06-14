@@ -1,5 +1,6 @@
 const { User, Thought } = require('../models');
 
+// get all users
 const getAllUsers = async (req, res) => {
     console.log('getAllUsers');
     try {
@@ -12,6 +13,7 @@ const getAllUsers = async (req, res) => {
     }
 };        
 
+// get user by id
 const getUserById = async (req, res) => {
     try {
         const userData = await User.findById(req.params.id).populate('thoughts').populate('friends');
@@ -25,6 +27,7 @@ const getUserById = async (req, res) => {
     }
 };
 
+// create a user
 const createUser = async (req, res) => {
     try {
         const userData = await User.create(req.body);
@@ -34,6 +37,7 @@ const createUser = async (req, res) => {
     }
 };
 
+// update user by id
 const updateUserById = async (req, res) => {
     try {
         const user = await User.findOneAndUpdate(
@@ -51,6 +55,7 @@ const updateUserById = async (req, res) => {
     }
 };
 
+// delete user by id
 const deleteUserById = async (req, res) => {
     try {
         const user = await User.findOneAndDelete({ _id: req.params.id });
@@ -58,6 +63,7 @@ const deleteUserById = async (req, res) => {
             res.status(404).json({ message: 'No user found with this id!' });
             return;
         }
+        // delete associated thoughts
         await Thought.deleteMany({ username: user.username });
         res.status(200).json({ message: 'User and the associated thoughts are deleted!' });
     } catch (err) {
@@ -65,6 +71,7 @@ const deleteUserById = async (req, res) => {
     }
 };
 
+// add a friend
 const addFriend = async (req, res) => {
     try {
         const user = await User.findOneAndUpdate(
@@ -82,6 +89,7 @@ const addFriend = async (req, res) => {
     }
 }
 
+// delete a friend
 const deleteFriend = async (req, res) => {
     try {
         const user = await User.findOneAndUpdate(
